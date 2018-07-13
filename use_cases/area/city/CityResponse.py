@@ -1,7 +1,7 @@
 
 from responses.ResponseBase import ResponseBase
 
-class GetCityResponse(ResponseBase):
+class CityResponse(ResponseBase):
 
     def __init__(self,entity):
         self._entity = entity

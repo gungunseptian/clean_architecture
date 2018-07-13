@@ -41,6 +41,9 @@ class AreaRepositoryAbstractBase(ABC):
                 
                 if v == "name":
                     self._result = self._result.filter(self._entity.name == filters[v] )
+                
+                if v == "legacy_id":
+                    self._result = self._result.filter(self._entity.legacy_id == filters[v] )
 
         return self._result
     

@@ -1,12 +1,12 @@
-from .GetCityResponse import GetCityResponse
+from .DistrictResponse import DistrictResponse
 # from .GetProvinceRequest import GetProvinceRequest
 from use_cases.area.AreaUseCaseBase import AreaUseCaseBase
 
-class GetCityUseCase(AreaUseCaseBase):
+class DistrictUseCase(AreaUseCaseBase):
     
     def set_response(self):
 
-        self._response   = GetCityResponse
+        self._response   = DistrictResponse
     
     
 
