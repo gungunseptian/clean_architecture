@@ -10,3 +10,5 @@ class DistrictEntity(Base, BaseEntity):
 
     id = Column(String(10), nullable=False, primary_key=True)
     name = Column(String(50), nullable=False)
+    legacy_id = Column(String(6), nullable=False)
+    city_id = Column(Integer(), nullable=False)

@@ -3,11 +3,12 @@ from src.database.sql import Base
 import datetime
 from .base_entity import BaseEntity
 
-class CityEntity(Base, BaseEntity):
 
-    __tablename__ = 'bc_city'
+class SubdistrictEntity(Base, BaseEntity):
+
+    __tablename__ = 'bc_subdistrict'
 
     id = Column(String(10), nullable=False, primary_key=True)
     name = Column(String(50), nullable=False)
     legacy_id = Column(String(6), nullable=False)
-    province_id = Column(Integer(), nullable=False)
+    district_id = Column(Integer(), nullable=False)

@@ -6,3 +6,9 @@ class ProvinceRepository(Base):
     def name(self):
         return "province"
     
+    def get_query(self,entity):
+
+        return self._result.query(
+                entity.legacy_id.label("legacy_id"),
+                entity.name.label("name"),
+        )

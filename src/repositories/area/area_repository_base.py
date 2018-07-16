@@ -14,10 +14,25 @@ class Base(ABC):
     def name(self):
         pass
 
-    def get_list(self):
-        
-        self._result = self._db.query(self._entity)
+    def get_join(self):
+        return None
 
+    def get_query(self,entity):
+
+        query_select = entity
+        if entity is None:
+            query_select = self._entity
+
+        return self._result.query(query_select)
+
+    def get_list(self):
+
+        self._result = self._db
+        self._result = self.get_query(None)
+
+        if self.get_join() is not None:
+            self._result = self.get_join()
+        
         if self._limit is not None:
             self._result = self._result.limit(self._limit)
 
@@ -40,24 +55,13 @@ class Base(ABC):
                 
                 if v == "name":
                     self._result = self._result.filter(self._entity.name == filters[v] )
-                
-        
+                        
         return self._result
-    
+
     def parse(self,entityData):
 
         data = []
         for i in entityData:
             data.append( {"id":i.legacy_id,"name":i.name } )
         return data
-
-    
-    # @abstractmethod
-    # def get_list(self):
-    #     pass
-
-    # @abstractmethod
-    # def get_one(self):
-    #     pass
-    
 

@@ -11,7 +11,7 @@ class CityResp(Base):
         data = []
         for i in self._entity:
             
-            data.append({"id":i['id'],"name":i['name'] })
+            data.append({"id":i['id'],"name":i['name'],"province_id":i["province_id"] })
             
         return data
 
